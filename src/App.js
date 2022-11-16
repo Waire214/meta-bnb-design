@@ -31,6 +31,7 @@ function App() {
       setWalletToggled(true)
       setToggled(false)
       setDisplayCancel(false)
+      setClick(false)
   }
 
   return (
