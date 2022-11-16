@@ -1,0 +1,88 @@
+// for colors
+$gradientBackground: linear-gradient(90deg, #A02279 11.45%, #A02279 11.45%);
+
+// for flexbox
+@mixin flexed ($direction, $justify, $align, $row, $column, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $row $column;
+    flex-wrap: $wrap;
+}
+
+// for font
+@mixin fonts ($fontStyle, $fontWeight, $fontSize, $lineHeight) {
+    font-family: 'Red Rose', cursive;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+.display-none {
+    display: none;
+}
+
+.footer-container {
+    font-family: 'Red Rose', cursive;
+    background: #1D1D1E;
+    padding: 50px 10px 50px 70px;
+    @include flexed(row, space-between, flex-start, 30px, 0, wrap);
+
+    @media only screen and (min-width: 601px) {
+        padding: 50px 25px
+    }
+    @media only screen and (min-width: 760px) {
+        @include flexed(row, space-between, flex-start, 0, 0, wrap);
+    }
+    @media only screen and (min-width: 1000px) {
+        padding: 50px 50px
+    }
+    @media only screen and (min-width: 1200px) {
+        padding: 50px 100px
+    }
+
+    .footer-section {
+        width: 100%;
+        @include flexed(column, center, flex-start, 0, 0, wrap);
+
+        .metabnb-icon {
+            margin-bottom: 30px;
+            
+            @media only screen and (min-width: 601px) {
+                padding: 0 0 25px 0
+            }
+        }
+
+        .icon {
+            margin-bottom: 20px;
+            @include flexed(row, space-between, center, 0, 10px, wrap)
+        }
+
+        .footer-p {
+            margin-bottom: 20px;
+            @include fonts(normal, 700, 18px, 22px)
+        }
+
+        @media only screen and (min-width: 760px) {
+            width: unset;
+            @include flexed(column, space-between, flex-start, 0, 0, wrap);
+        }
+    
+    }
+
+    .footer-icons {
+        height: 300px;
+        justify-content: space-between;
+    }
+
+    .insta {
+        color: white;
+    }
+
+    .text {
+        color: #F1F3F9;
+        text-decoration: none;
+        @include fonts(normal, 400, 14px, 35px)
+    }
+}

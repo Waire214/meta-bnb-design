@@ -1,0 +1,189 @@
+// for colors
+$gradientBackground: linear-gradient(90deg, #A02279 11.45%, #A02279 11.45%);
+
+// for flexbox
+@mixin flexed ($direction, $justify, $align, $row, $column) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $row $column;
+}
+
+// for font
+@mixin fonts ($fontStyle, $fontWeight, $fontSize, $lineHeight) {
+    font-family: 'Red Rose', cursive;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+.display-none {
+    display: none;
+}
+.subheader-container {
+    padding: 50px 0px;
+    @include flexed(column, space-between, center, 0, 0);
+
+    .subheader-section {
+        padding: 0 10px 20px 10px;
+        @include flexed(column-reverse, space-between, center, 0, 0);
+
+        .text-container {
+            padding-top: 20px;
+            .sub-header-heading {
+                @include fonts(normal, 400, 26px, 140%);
+                span {
+                    color: #A02279;
+                }
+            }
+            .sub-header-text {
+                @include fonts(normal, 400, 14px, 22px);
+        
+            }
+
+            
+            .input-container {
+                margin-top: 20px;
+        
+                .input-style {
+                    height: 35px;
+                    padding: 5px;
+                    width: 55%;
+                    background: rgba(247, 247, 247, 0.1);
+                    border: 1px solid #A3A3A3;
+                    border-radius: 8px 0px 0px 8px;
+                }
+                .input-style::placeholder {
+                    color: #B8B8B8;
+                }
+                .input-btn {
+                    width: 35%;
+                    background: $gradientBackground;
+                    border-radius: 0px 8px 8px 0px;
+                    outline: none;
+                    border: none;
+                    color: #FFFFFF;
+                }    
+            }
+        
+    
+        }
+    }
+
+    .type-icon-container {
+        width: 100%;
+        padding: 10px 10px;
+        @include flexed(row, space-between, center, 0, 0);
+        background: $gradientBackground;
+        margin-top: 20px;
+        color: #FFFFFF;
+        @include fonts(normal, 700, 18px, 25px)
+    }
+
+    @media only screen and (min-width: 601px) {
+        .subheader-section {
+            width: 100%;
+            padding: 0 25px 20px 25px;
+            @include flexed(row, space-between, center, 0, 0);
+
+            .text-container {
+                min-height: 340px;
+
+                .sub-header-heading {
+                    @include fonts(normal, 400, 35px, 50px);
+                }
+                .sub-header-text {
+                    @include fonts(normal, 400, 14px, 28px);
+                }
+
+
+                .input-container {
+                    margin-top: 50px;
+                }    
+            }   
+            .image-container {
+                width: 240px;
+            }
+
+            
+        }  
+
+        .type-icon-container {
+            padding: 10px 25px;
+        }
+    
+        
+        .display-2 {
+            display: initial;
+        }
+    }
+
+    @media only screen and (min-width: 1000px) {
+        .subheader-section {
+            padding: 0 50px 20px 50px;
+
+            .text-container {
+                .sub-header-heading {
+                    @include fonts(normal, 400, 50px, 80px);
+                }
+                .sub-header-text {
+                    @include fonts(normal, 400, 20px, 38px);
+            
+                }
+
+                .input-container {
+                    .input-style {
+                        width: 60%;
+
+                    }
+                    .input-btn {
+                        width: 30%;
+                    }
+                }
+            }
+
+            .image-container {
+                width: 240px;
+            }
+        }
+
+        .type-icon-container {
+            padding: 10px 50px;
+        }    
+    }
+
+    @media only screen and (min-width: 1200px) {
+        .subheader-section {
+            padding: 0 100px 20px 100px;
+
+            .text-container {
+                .sub-header-heading {
+                    @include fonts(normal, 400, 43px, 80px);
+                }
+                .sub-header-text {
+                    @include fonts(normal, 400, 20px, 38px);
+            
+                }
+            }
+
+            .image-container {
+                @include flexed(row, center, center, 0px, 10px);
+                width: 480px;
+
+                .pad-image {
+                    margin-top: 100px;
+                }
+            }
+        }
+
+        .display-3-4 {
+            display: initial;
+        }
+
+        .type-icon-container {
+            padding: 10px 100px;
+        }    
+
+    }
+}

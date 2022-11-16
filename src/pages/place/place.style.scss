@@ -1,0 +1,116 @@
+// for colors
+$gradientBackground: linear-gradient(90deg, #A02279 11.45%, #A02279 11.45%);
+
+// for flexbox
+@mixin flexed ($direction, $justify, $align, $row, $column, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $row $column;
+    flex-wrap: $wrap;
+}
+
+// for font
+@mixin fonts ($fontStyle, $fontWeight, $fontSize, $lineHeight) {
+    font-family: 'Red Rose', cursive;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+
+.main-container {
+    padding: 0 10px;
+
+    @media only screen and (min-width: 601px) {
+        padding: 0 25px
+    }
+    @media only screen and (min-width: 1000px) {
+        padding: 0 50px
+    }
+    @media only screen and (min-width: 1200px) {
+        padding: 0 100px
+    }
+
+    .link-input-container {
+        @include flexed(row, space-between, flex-end, 0, 0, wrap);
+        padding: 25px 0;
+    }
+
+    .link {
+        text-decoration: none;
+        @include fonts(normal, 400, 20px, 25px);
+        color: #434343;
+        padding-right: 20px;
+        @media only screen and (min-width: 1000px) {
+            @include fonts(normal, 400, 18px, 25px);
+            padding-right: 24px;
+        }
+
+    }
+
+    .filter {
+        position: absolute;
+        width: 300px;
+        flex: 1;
+        padding: 20px 10px;
+        opacity: initial;
+        left: 80px;
+        z-index: 1000;
+        @include flexed(column, space-between, center, 0, 10px, wrap);
+        background: $gradientBackground;
+
+        .link-filter {
+            color: #FFF;
+            padding: 20px 0;
+        }
+    }
+    .normal-filter {
+        display: none;
+        @media only screen and (min-width: 1000px) {
+            @include flexed(row, space-between, center, 0, 0, wrap)
+        }
+
+    }
+
+    .remove-input {
+        display: none;
+        @media only screen and (min-width: 1000px) {
+            display: initial;
+        }
+    
+    }
+
+    .remove-input1 {
+        @media only screen and (min-width: 1000px) {
+            display: none;
+        }
+
+    }
+    .image-container {
+        @media only screen and (min-width: 601px) {
+            @include flexed(row, space-between, center, 0, 0, wrap)
+        }
+    }
+    
+}
+
+.opaque {
+    opacity: 0.3;
+}
+
+.input-label {
+    background: linear-gradient(124.4deg, #FFFFFF 10.8%, #FFFFFF 87.34%);
+    border: 1px solid #B4B4B4;
+    border-radius: 8px;
+    padding: 8px;
+}
+.input {
+    border: none;
+    outline: none;
+}
+
+.opaque {
+    opacity: 0.3;
+}

@@ -1,0 +1,59 @@
+// for flexbox
+@mixin flexed ($direction, $justify, $align, $row, $column, $wrap) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $row $column;
+    flex-wrap: $wrap;
+}
+
+// for font
+@mixin fonts ($fontStyle, $fontWeight, $fontSize, $lineHeight) {
+    font-family: 'Red Rose', cursive;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+
+.figure {
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    background: linear-gradient(124.4deg, #FFFFFF 10.8%, #FFFFFF 87.34%);
+    border: 1px solid #D7D7D7;
+    border-radius: 15px;
+    @include flexed(row, center, center, 0, 0, wrap);
+
+    @media only screen and (min-width: 601px) {
+        width: 48%;
+    }
+    @media only screen and (min-width: 1000px) {
+    }
+    @media only screen and (min-width: 1200px) {
+        width: 24%;
+    }
+
+    .image-icon {
+        width: 100%;
+    }
+
+    .figCaption {
+        padding-top: 10px;
+        @include flexed(row, space-between, flex-start, 0, 0, wrap);
+        width: 100%;
+
+        .normal-text {
+            @include fonts(normal, 400, 12px, 13px);
+            color: #434343;
+        }
+
+        .cost-text {
+            @include fonts(normal, 700, 12px, 13px)
+        }
+
+        .star {
+            margin-right: 7px;
+        }
+    }
+}

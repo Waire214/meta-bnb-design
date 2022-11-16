@@ -1,0 +1,139 @@
+// for colors
+$gradientBackground: linear-gradient(90deg, #A02279 11.45%, #A02279 11.45%);
+
+// for flexbox
+@mixin flexed ($direction, $justify, $align, $row, $column) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $row $column;
+}
+
+// for font
+@mixin fonts ($fontStyle, $fontWeight, $fontSize, $lineHeight) {
+    font-family: 'Red Rose', cursive;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}
+.display-none {
+    display: none;
+}
+
+.nav-container {
+    width: 100%;
+    padding: 25px 10px;
+    @include flexed(row, space-between, center, 0, 0);
+
+    .nav-logo {
+        @include flexed(row, flex-start, center, 0, 0);
+        
+        .logo-icon {
+            width: 20px;
+            height: 18px;
+        }
+
+        .logo-name {
+            width: 100px;
+        }    
+    }
+
+    .display-menu-general {
+        position: absolute;
+        z-index: 1000;
+        right: 10px;
+        top: 60px;
+        background: $gradientBackground;
+        padding: 20px;
+
+        .nav-main-link {
+            @include flexed(column, flex-start, center, 0, 0);
+        }
+    }
+
+    .display-menu-desktop {
+        display: none;
+    }
+
+    .nav-link {
+        padding: 20px 10px;
+        text-decoration: none;
+        color: #FFFFFF;
+        @include fonts(normal, 400, 20px, 25px)
+    }
+
+    .nav-wallet-general {
+        background: $gradientBackground;
+        @include fonts(normal, normal, 16px, 20px);
+        padding: 10px 20px;
+        color: #FFFFFF;
+        background: #709974;
+
+    }
+
+    @media only screen and (min-width: 601px) {
+        padding: 25px 25px;
+    }
+
+    @media only screen and (min-width: 1000px) {
+        padding: 25px 50px;
+        
+        .nav-logo { 
+            .logo-icon {
+                width: 30px;
+                height: 28px;
+            }
+    
+            .logo-name {
+                width: 140px;
+            }    
+        }
+        .nav-main-link { 
+            display: flex;
+        }
+
+        .nav-link {
+            padding: 0 10px;
+            text-decoration: none;
+            color: #434343;
+            @include fonts(normal, 400, 20px, 25px)
+        }
+        .nav-wallet-desktop {
+            display: block;
+            background: $gradientBackground;
+            border-radius: 10px;
+            padding: 10px 20px;
+
+            .nav-wallet {
+                color: #FFFFFF;
+            }
+        }
+        .remove-wallet {
+            display: none;
+        }
+    
+    }
+
+    @media only screen and (min-width:1200px) {
+        padding: 25px 100px;
+        .nav-logo {
+            .logo-icon {
+                width: initial;
+                height: initial;
+            }
+    
+            .logo-name {
+                width: initial;
+            }          
+        }  
+
+        .display-menu-desktop {
+            @include flexed(row, space-between, center, 0, 0);
+
+        }
+
+    }
+}
+
